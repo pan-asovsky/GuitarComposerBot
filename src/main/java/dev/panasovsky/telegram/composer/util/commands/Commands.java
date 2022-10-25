@@ -6,13 +6,11 @@ public enum Commands {
     CHORD("chord"),
     GAMMA("gamma"),
     UNDEFINED("undefined");
+
     final String name;
+
     Commands(final String name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
     }
 
 }
