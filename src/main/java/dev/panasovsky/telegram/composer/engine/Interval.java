@@ -1,6 +1,11 @@
 package dev.panasovsky.telegram.composer.engine;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
+
+@Getter
+@RequiredArgsConstructor
 public enum Interval {
 
     MINOR_SECOND(1),
@@ -19,13 +24,5 @@ public enum Interval {
     MAJOR_NINTH(14);
 
     private final int semitone;
-
-    Interval(final int semitone) {
-        this.semitone = semitone;
-    }
-
-    public int getSemitone() {
-        return semitone;
-    }
 
 }

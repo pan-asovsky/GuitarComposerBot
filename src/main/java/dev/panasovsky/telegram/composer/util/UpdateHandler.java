@@ -10,10 +10,11 @@ import org.telegram.telegrambots.meta.api.methods.send.*;
 import lombok.*;
 
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 public class UpdateHandler {
 
     final private String botUserName;
+
 
     public BotApiMethod<?> parseAndProcessCommand(final Update update) {
 

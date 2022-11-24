@@ -1,30 +1,22 @@
 package dev.panasovsky.telegram.composer.config;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Configuration;
 
 
-@Component
+@Getter
+@Setter
+@Configuration
 public class TelegramConfig {
-    @Value("${telegram.webhook-path}")
-    private String webhookPath;
-    @Value("${telegram.bot-username}")
-    private String botUserName;
+
     @Value("${telegram.bot-token}")
     private String botToken;
+    @Value("${telegram.bot-username}")
+    private String botUserName;
+    @Value("${telegram.webhook-path}")
+    private String webhookPath;
 
-    public TelegramConfig() {
-    }
-
-    public String getWebhookPath() {
-        return this.webhookPath;
-    }
-
-    public String getBotUserName() {
-        return this.botUserName;
-    }
-
-    public String getBotToken() {
-        return this.botToken;
-    }
 }

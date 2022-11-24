@@ -19,6 +19,7 @@ public class ChordParser {
             "E#", "F", "E#m", "Fm", "B#", "C", "B#m", "Cm"
     );
 
+
     public String validateAndGetChord(final String chord) throws ChordConstructingException {
 
         if (isFlatAndSharp(chord)) throw new ChordConstructingException("Неверный аккорд!");

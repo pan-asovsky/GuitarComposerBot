@@ -2,6 +2,10 @@ package dev.panasovsky.telegram.composer.web;
 
 import dev.panasovsky.telegram.composer.util.UpdateHandler;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.extern.log4j.Log4j2;
+
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.starter.SpringWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
@@ -9,15 +13,17 @@ import org.telegram.telegrambots.meta.api.objects.CallbackQuery;
 import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 
 import java.util.Objects;
-import lombok.extern.log4j.Log4j2;
 
 
+@Getter
+@Setter
 @Log4j2
 public class TelegramWebhookBotCore extends SpringWebhookBot {
 
     private String botPath;
     private String botToken;
     private String botUsername;
+
 
     public TelegramWebhookBotCore(final SetWebhook setWebhook) {
         super(setWebhook);
@@ -79,30 +85,6 @@ public class TelegramWebhookBotCore extends SpringWebhookBot {
             log.debug("ChatID: {}", update.getMessage().getChatId());
             return true;
         }
-    }
-
-    public String getBotPath() {
-        return this.botPath;
-    }
-
-    public String getBotToken() {
-        return this.botToken;
-    }
-
-    public String getBotUsername() {
-        return this.botUsername;
-    }
-
-    public void setBotPath(final String botPath) {
-        this.botPath = botPath;
-    }
-
-    public void setBotToken(final String botToken) {
-        this.botToken = botToken;
-    }
-
-    public void setBotUsername(final String botUsername) {
-        this.botUsername = botUsername;
     }
 
 }

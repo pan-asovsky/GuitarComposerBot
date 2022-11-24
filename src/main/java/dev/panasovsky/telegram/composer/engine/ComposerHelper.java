@@ -7,7 +7,8 @@ import java.util.*;
 
 public class ComposerHelper {
 
-    final ChordParser chordParser = new ChordParser();
+    private final ChordParser chordParser = new ChordParser();
+
 
     public String buildAnyGamutByChord(final String chord) {
 

@@ -1,5 +1,7 @@
 package dev.panasovsky.telegram.composer.web;
 
+import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -11,19 +13,18 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 
 
+@Log4j2
 @RestController
+@RequiredArgsConstructor
 public class WebhookController {
+
     private final TelegramWebhookBotCore webhookBotCore;
-    private static final Logger LOG = LoggerFactory.getLogger(WebhookController.class);
 
-    @PostMapping({"/telegrambot"})
+    @PostMapping({"/composer"})
     public BotApiMethod<?> onUpdateReceived(@RequestBody final Update update) {
-        LOG.debug("Update has been received at WebhookController: {}", update.getUpdateId());
-        return this.webhookBotCore.onWebhookUpdateReceived(update);
-    }
 
-    public WebhookController(final TelegramWebhookBotCore webhookBotCore) {
-        this.webhookBotCore = webhookBotCore;
+        log.debug("Update has been received at WebhookController: {}", update.getUpdateId());
+        return this.webhookBotCore.onWebhookUpdateReceived(update);
     }
 
 }
